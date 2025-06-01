@@ -2,11 +2,11 @@ import React from "react";
 
 const Learn = () => {
   return (
-    <section class="bg-gray-50  :bg-gray-800">
+    <section data-aos="fade-up">
       <div class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6">
         <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
-          <div class="text-gray-500 sm:text-lg  :text-gray-400">
-            <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900  :text-white">
+          <div class=" text-white sm:text-lg  :text-gray-400">
+            <h2 class="mb-4 text-3xl font-extrabold tracking-tight  text-white  :text-white">
               Master your money mindset
             </h2>
             <p class="mb-8 font-light lg:text-xl">
@@ -21,7 +21,7 @@ const Learn = () => {
             >
               <li class="flex space-x-3">
                 <svg
-                  class="flex-shrink-0 w-5 h-5 text-purple-500  :text-purple-400"
+                  class="flex-shrink-0 w-5 h-5  text-white  :text-purple-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -32,13 +32,13 @@ const Learn = () => {
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-base font-medium leading-tight text-gray-900  :text-white">
+                <span class="text-base font-medium leading-tight  text-white  :text-white">
                   Budgeting made simple
                 </span>
               </li>
               <li class="flex space-x-3">
                 <svg
-                  class="flex-shrink-0 w-5 h-5 text-purple-500  :text-purple-400"
+                  class="flex-shrink-0 w-5 h-5  text-white  :text-purple-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -49,13 +49,13 @@ const Learn = () => {
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-base font-medium leading-tight text-gray-900  :text-white">
+                <span class="text-base font-medium leading-tight  text-white  :text-white">
                   Save with purpose
                 </span>
               </li>
               <li class="flex space-x-3">
                 <svg
-                  class="flex-shrink-0 w-5 h-5 text-purple-500  :text-purple-400"
+                  class="flex-shrink-0 w-5 h-5  text-white  :text-purple-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ const Learn = () => {
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-base font-medium leading-tight text-gray-900  :text-white">
+                <span class="text-base font-medium leading-tight  text-white  :text-white">
                   Smart investment habits
                 </span>
               </li>

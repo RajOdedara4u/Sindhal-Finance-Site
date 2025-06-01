@@ -1,5 +1,8 @@
 import React from "react";
 import "./App.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Login from "./page/Login";
 import Signup from "./page/Signup";
@@ -12,6 +15,9 @@ import Header from "./component/Header";
 import Footer from "./component/Footer";
 
 function App() {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   return (
     <>
       <Header />

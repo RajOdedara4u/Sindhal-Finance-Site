@@ -3,10 +3,10 @@ import React from "react";
 const Contact = () => {
   return (
     <section className="px-6 py-16 max-w-3xl mx-auto">
-      <h2 className="text-3xl font-semibold text-yellow-700 mb-4">
+      <h2 className="text-3xl font-semibold  mb-4">
         Get in Touch
       </h2>
-      <p className="text-gray-700 mb-6">
+      <p className=" mb-6">
         DM us on Instagram or send your inquiry below.
       </p>
       <form className="space-y-4">
