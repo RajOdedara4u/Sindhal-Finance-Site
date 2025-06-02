@@ -4,7 +4,7 @@ const Services = () => {
   return (
     <>
       <section data-aos="fade-up">
-        <div class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6">
+        <div class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-10 lg:px-6">
           <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
             <img
               class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex"

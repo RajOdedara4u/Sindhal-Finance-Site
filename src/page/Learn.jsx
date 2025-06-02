@@ -1,3 +1,4 @@
+import learn from "../assets/learn.pdf";
 import React from "react";
 
 const Learn = () => {
@@ -21,7 +22,7 @@ const Learn = () => {
             >
               <li class="flex space-x-3">
                 <svg
-                  class="flex-shrink-0 w-5 h-5  text-white  :text-purple-400"
+                  class="flex-shrink-0 w-5 h-5  text-white"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -82,6 +83,18 @@ const Learn = () => {
             alt="dashboard feature image"
           />
         </div>
+        <a
+          data-aos="flip-left"
+          download
+          href={learn}
+          className={` h-[30%] llap:h-[60%] w- flex items-end justify-center `}
+        >
+          <button className="relative animate__animated  animate__tada inline-flex items-center justify-center p-0.5 mb-2  overflow-hidden text-xs sm:text-sm md:text-base lg:text-base font-medium rounded-lg group bg-gradient-to-br bg-white text-black hover:text-purple-400  :text-white focus:ring-4 focus:outline-none focus:ring-blue-300  :focus:ring-blue-800">
+            <span className="relative px-4 py-2 text-xs sm:text-sm md:text-base lg:text-base transition-all ease-in duration-75    :bg-gray-900 rounded-md group-hover:bg-opacity-0">
+              Download PDF
+            </span>
+          </button>
+        </a>
       </div>
     </section>
   );

@@ -18,7 +18,7 @@ const Header = () => {
         {/* Hamburger Button (mobile) */}
         <button
           onClick={toggleMenu}
-          className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          className="inline-flex items-center p-2 text-sm rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
         >
           <span className="sr-only">Open main menu</span>
           {isMenuOpen ? (

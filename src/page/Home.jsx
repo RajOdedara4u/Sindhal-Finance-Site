@@ -1,7 +1,7 @@
 import React from "react";
 import Learn from "./Learn";
 import Services from "./Services";
-import learn from "../assets/learn.pdf";
+import WhatsAppButton from "../component/WhatsAppButton";
 const Home = () => {
   return (
     <>
@@ -16,17 +16,7 @@ const Home = () => {
               finance guidance with our team and support
             </p>
             <div class="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
-              <a
-                download
-                href={learn}
-                className={` h-[30%] llap:h-[60%] w- flex items-end justify-center `}
-              >
-                <button className="relative animate__animated  animate__tada inline-flex items-center justify-center p-0.5 mb-2  overflow-hidden text-xs sm:text-sm md:text-base lg:text-base font-medium rounded-lg group bg-gradient-to-br bg-white text-black hover:text-white  :text-white focus:ring-4 focus:outline-none focus:ring-blue-300  :focus:ring-blue-800">
-                  <span className="relative px-4 py-2 text-xs sm:text-sm md:text-base lg:text-base transition-all ease-in duration-75    :bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                    Download PDF
-                  </span>
-                </button>
-              </a>
+              <WhatsAppButton />
             </div>
           </div>
           <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">

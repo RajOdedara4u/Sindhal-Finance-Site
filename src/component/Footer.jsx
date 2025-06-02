@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../assets/logo.jpg";
+import learn from "../assets//learn.pdf";
 
 const Footer = () => {
   return (
@@ -20,19 +21,8 @@ const Footer = () => {
               </h2>
               <ul className=" text-white  :text-gray-400 font-medium">
                 <li className="mb-4">
-                  <a
-                    href="https://github.com/RajOdedara4u"
-                    className="hover:underline"
-                  >
-                    Github
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.linkedin.com/in/raj-maher"
-                    className="hover:underline"
-                  >
-                    linkedin
+                  <a className="hover:underline" download href={learn}>
+                    Download PDF
                   </a>
                 </li>
               </ul>
@@ -42,17 +32,9 @@ const Footer = () => {
                 Follow us
               </h2>
               <ul className=" text-white  :text-gray-400 font-medium">
-                <li className="mb-4">
-                  <a
-                    href="https://www.youtube.com/@Raj_odedara4u"
-                    className="hover:underline "
-                  >
-                    Youtube
-                  </a>
-                </li>
                 <li>
                   <a
-                    href="https://www.instagram.com/save_point4u/"
+                    href="https://www.instagram.com/sindhal_personal_finance/"
                     className="hover:underline"
                   >
                     Instagram
@@ -66,16 +48,8 @@ const Footer = () => {
               </h2>
               <ul className=" text-white  :text-gray-400 font-medium">
                 <li className="mb-4">
-                  <a href="tel:+917069439842" className="hover:underline">
-                    +91 706 943 9842
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="mailto:odedararaj4u@gmail.com"
-                    className="hover:underline"
-                  >
-                    odedararaj4u@gmail.com
+                  <a href="tel:+918980002847" className="hover:underline">
+                    +91 898 000 2847
                   </a>
                 </li>
               </ul>
@@ -89,7 +63,7 @@ const Footer = () => {
           </span>
           <div className="flex mt-4 sm:justify-center items-center sm:mt-0">
             <a
-              href="https://www.instagram.com/save_point4u/"
+              href="https://www.instagram.com/sindhal_personal_finance/"
               className="  :hover:text-white"
             >
               <svg
@@ -102,10 +76,7 @@ const Footer = () => {
               </svg>
               <span className="sr-only">instagram page</span>
             </a>
-            <a
-              href="https://www.youtube.com/@Raj_odedara4u"
-              className=" text-white hover: text-white  :hover:text-white ms-5"
-            >
+            <a href="https://www.youtube.com" className=" text-white ms-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-5 fill-white"
@@ -121,10 +92,7 @@ const Footer = () => {
               </svg>
               <span className="sr-only">Youtube community</span>
             </a>
-            <a
-              href="https://x.com/RAJBHAI4955"
-              className=" text-white hover: text-white  :hover:text-white ms-5"
-            >
+            <a className=" text-white  :hover:text-white ms-5">
               <svg
                 className="w-4 h-4"
                 aria-hidden="true"
@@ -140,10 +108,7 @@ const Footer = () => {
               </svg>
               <span className="sr-only">Twitter page</span>
             </a>
-            <a
-              href="https://github.com/RajOdedara4u"
-              className=" text-white hover: text-white  :hover:text-white ms-5"
-            >
+            <a className=" text-white ms-5">
               <svg
                 className="w-4 h-4"
                 aria-hidden="true"
@@ -159,7 +124,7 @@ const Footer = () => {
               </svg>
               <span className="sr-only">GitHub account</span>
             </a>
-            <a href="https://www.linkedin.com/in/raj-maher" className=" ms-5">
+            <a className=" ms-5">
               <svg
                 className="fill-white w-4"
                 xmlns="http://www.w3.org/2000/svg"
