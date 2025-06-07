@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import logo2 from "../assets/logo2.jpg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast, Toaster } from "react-hot-toast";
 import AOS from "aos";
@@ -12,6 +12,8 @@ const Login = () => {
     password: "",
   });
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -22,17 +24,14 @@ const Login = () => {
 
   const validate = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
 
     if (!emailRegex.test(formData.email)) {
       toast.error("Please enter a valid email.");
       return false;
     }
 
-    if (!passwordRegex.test(formData.password)) {
-      toast.error(
-        "Password must be at least 6 characters and include letters and numbers."
-      );
+    if (formData.password.length < 6) {
+      toast.error("Password must be at least 6 characters.");
       return false;
     }
 
@@ -44,10 +43,27 @@ const Login = () => {
     if (!validate()) return;
 
     try {
-      const res = await axios.post("https://yourapi.com/api/login", formData);
+      const res = await axios.post(
+        "https://sindhal-web-server.onrender.com/api/auth/login",
+        formData
+      );
+
       toast.success("Login successful!");
-      // Save token if returned: localStorage.setItem("token", res.data.token);
-      // Navigate to dashboard, etc.
+      console.log(res);
+
+      // Save token
+      localStorage.setItem("token", res.data.token);
+
+      // Dispatch tokenChange event so Header updates
+      window.dispatchEvent(new Event("tokenChange"));
+
+      toast.success("Login successful!");
+      navigate("/");
+
+      // Redirect after slight delay for toast to show
+      setTimeout(() => {
+        navigate("/"); // Redirect to /home
+      }, 1000);
     } catch (err) {
       toast.error("Invalid email or password.");
     }

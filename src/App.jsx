@@ -13,6 +13,7 @@ import Learn from "./page/Learn";
 import About from "./page/About";
 import Header from "./component/Header";
 import Footer from "./component/Footer";
+import AdminUsers from "./page/AdminUsers";
 
 function App() {
   useEffect(() => {
@@ -22,6 +23,7 @@ function App() {
     <>
       <Header />
       <Routes>
+        <Route path="/admin/users" element={<AdminUsers />} />
         <Route path="/login" element={<Login />}>
           Login
         </Route>

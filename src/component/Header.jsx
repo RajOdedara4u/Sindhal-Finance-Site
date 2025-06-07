@@ -1,14 +1,44 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.jpg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkToken = () => {
+      const token = localStorage.getItem("token");
+      setIsLoggedIn(!!token);
+    };
+
+    // Run once on mount
+    checkToken();
+
+    // Listen to storage changes → works if other components update token
+    window.addEventListener("storage", checkToken);
+
+    // Optional: also listen to custom event for in-page updates
+    window.addEventListener("tokenChange", checkToken);
+
+    return () => {
+      window.removeEventListener("storage", checkToken);
+      window.removeEventListener("tokenChange", checkToken);
+    };
+  }, []);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.dispatchEvent(new Event("tokenChange"));
+    setIsLoggedIn(false);
+    navigate("/login");
+  };
+
   return (
-    <header data-aos="fade-down" className="block w-full z-50   shadow-md">
+    <header data-aos="fade-down" className="block w-full z-50 shadow-md">
       <nav className="max-w-screen-xl mx-auto px-4 py-2.5 flex items-center justify-between">
         {/* Logo */}
         <NavLink to="/" className="flex items-center">
@@ -22,7 +52,6 @@ const Header = () => {
         >
           <span className="sr-only">Open main menu</span>
           {isMenuOpen ? (
-            // Close icon
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
               <path
                 fillRule="evenodd"
@@ -31,7 +60,6 @@ const Header = () => {
               />
             </svg>
           ) : (
-            // Hamburger icon
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
               <path
                 fillRule="evenodd"
@@ -55,14 +83,13 @@ const Header = () => {
               { to: "/services", label: "Services" },
               { to: "/contact", label: "Contact" },
               { to: "/about", label: "About" },
-              { to: "/login", label: "Login" },
             ].map(({ to, label }) => (
               <li key={to}>
                 <NavLink
                   to={to}
                   className={({ isActive }) =>
                     `block py-2 pl-3 pr-4 rounded lg:p-0 ${
-                      isActive ? " text-whitefont-semibold" : "text-white"
+                      isActive ? " text-white font-semibold" : "text-white"
                     }`
                   }
                   onClick={() => setIsMenuOpen(false)} // close menu on click
@@ -71,6 +98,44 @@ const Header = () => {
                 </NavLink>
               </li>
             ))}
+
+            {isLoggedIn && (
+              <li>
+                <NavLink
+                  to="/admin/users"
+                  className="block py-2 pl-3 pr-4 text-white font-semibold hover:text-green-400 lg:p-0"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Admin Panel
+                </NavLink>
+              </li>
+            )}
+
+            {/* Conditionally show Login or Logout */}
+            {!isLoggedIn ? (
+              <li>
+                <NavLink
+                  to="/login"
+                  className={({ isActive }) =>
+                    `block py-2 pl-3 pr-4 rounded lg:p-0 ${
+                      isActive ? " text-white font-semibold" : "text-white"
+                    }`
+                  }
+                  onClick={() => setIsMenuOpen(false)} // close menu on click
+                >
+                  Login
+                </NavLink>
+              </li>
+            ) : (
+              <li>
+                <button
+                  onClick={handleLogout}
+                  className="block py-2 pl-3 pr-4 text-white font-semibold hover:text-red-400 lg:p-0"
+                >
+                  Logout
+                </button>
+              </li>
+            )}
           </ul>
         </div>
       </nav>

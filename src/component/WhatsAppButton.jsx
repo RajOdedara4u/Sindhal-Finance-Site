@@ -12,7 +12,7 @@ const WhatsAppButton = () => {
     >
       <span className="flex items-center gap-2 px-4 py-2 transition-all ease-in duration-75 rounded-md">
         <FaWhatsapp className="text-lg" />
-        WhatsApp Me
+        Let's talk about it
       </span>
       <IoMdNotificationsOutline className="text-lg" />
     </a>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import logo2 from "../assets/logo2.jpg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast, Toaster } from "react-hot-toast";
 import AOS from "aos";
@@ -12,6 +12,8 @@ const Signup = () => {
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -36,10 +38,8 @@ const Signup = () => {
       return false;
     }
 
-    if (!passwordRegex.test(formData.password)) {
-      toast.error(
-        "Password must be at least 6 characters and contain letters and numbers."
-      );
+    if (formData.password.length < 6) {
+      toast.error("Password must be at least 6 characters.");
       return false;
     }
 
@@ -52,13 +52,23 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "https://yourapi.com/api/signup",
+        "https://sindhal-web-server.onrender.com/api/auth/login",
         formData
       );
-      toast.success("Signup successful!");
-      // redirect or clear form
+
+      toast.success("Signup successful! Redirecting to login...");
+      console.log(response);
+
+      // Clear form
+      setFormData({ name: "", email: "", password: "" });
+
+      // Redirect after 1 second
+      setTimeout(() => {
+        navigate("/login");
+      }, 1000);
     } catch (error) {
       toast.error("Signup failed. Try again!");
+      console.log(error);
     }
   };
 

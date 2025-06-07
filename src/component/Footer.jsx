@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/logo.jpg";
-import learn from "../assets//learn.pdf";
+import learn from "../assets//money flow magic.pdf";
 
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="mb-6 gap-4  flex md:mb-0">
             <img
               src={logo}
-              class="h-6 mr-3 sm:h-9 rounded-4xl"
+              className="h-6 mr-3 sm:h-9 rounded-4xl"
               alt="Landwind Logo"
             />
           </div>
@@ -141,6 +141,12 @@ const Footer = () => {
               <span className="sr-only">linkdin account</span>
             </a>
           </div>
+        </div>
+        <div className="text-center mx-auto">
+          Developed By{" "}
+          <a className="text-blue-200" href="https://r4j-portfolio.netlify.app/">
+            Raj Odedara
+          </a>
         </div>
       </div>
     </footer>
